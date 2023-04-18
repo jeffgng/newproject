@@ -31,7 +31,9 @@ Route::get('/tarif', 'App\Http\Controllers\useController@tarif')->name('tarif');
 
 Route::get('/liste', 'App\Http\Controllers\useController@liste')->name('liste');
 
-Route::resource('cars', 'messageController');
-Route::get('/edit', 'App\Http\Controllers\useController@edit')->name('edit');
+Route::get('delete/{id}', 'App\Http\Controllers\useController@remove');
 
+Route::get('edit/{id}', 'App\Http\Controllers\useController@edit');
+
+Route::post('update/{id}', 'App\Http\Controllers\useController@update');
 

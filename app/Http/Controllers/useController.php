@@ -18,15 +18,6 @@ class useController extends Controller
         //
     }
 
-    /* public function liste()
-    {
-        //
-         $liste = message::all();
-
-    return view('liste', compact('liste'));
-    }*/
-
-
     public function acceuil()
     {
         //
@@ -115,12 +106,21 @@ class useController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function edit($id)
     {
-        //
-        $message = message::findOrFail($id);
+        $message = message::find($id);
+        return view('edit',['message' => $message]);
 
-    return view('edit', compact('message'));
+    }
+    public function update(Request $request,$id){
+        $message = message::find($id);
+        $message->name = $request->input('name');
+        $message->email = $request->input('email');
+        $message->message = $request->input('message');
+        $message->save();
+        return 'element modifier avec succes';
     }
 
     /**
@@ -130,18 +130,7 @@ class useController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-         $validatedmessage = $request->validate([
-        'name' => 'required|max:255',
-        'email' => 'required',
-        'message'=>'required'
-         ]);
-         liste::whereId($id)->update($validatedmessage);
 
-    return redirect('/liste')->with('success', ' mise à jour effectuée succèss');
-    }
 
 
     /**
@@ -150,13 +139,24 @@ class useController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+       public function remove($id)
+    {
+
+            $message= message::find($id);
+
+            $message->delete();
+            return "element supprimé";
+
+    }
     public function destroy($id)
     {
         //
 
-        $messages = message::findOrFail($id);
+      /*  $messages = message::findOrFail($id);
     $messages->delete();
 
-    return redirect('/liste')->with('success', ' supprimer avec succèss');
+    return redirect('/liste')->with('success', ' supprimer avec succèss');*/
     }
 }
+

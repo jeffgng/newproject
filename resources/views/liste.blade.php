@@ -8,6 +8,8 @@
     <textarea name="message" id="message" cols="30" rows="10">
         {{$message->message}}
     </textarea>
+    <a href="edit/{{$message->id}}">edit</a>
+    <a href="delete/{{$message->id}}">supprimer</a>
 
 @endforeach
 
