@@ -19,6 +19,14 @@
 </p>
    
 </div>
+
+<table> 
+    @foreach ($tab as $choix )
+        <td>{{$choix}}</td>
+    @endforeach
+    
+</table>
+
 <div>
     @include('partials._footer')
 </div>

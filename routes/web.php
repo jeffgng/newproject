@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\useController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\useController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,13 +19,19 @@ Route::get('/welcome', function () {
 
 
 Route::get('/contact', 'App\Http\Controllers\useController@create')->name('contact');
-Route::post('/contact', 'App\Http\Controllers\useController@store');
+Route::post('/contact', 'App\Http\Controllers\useController@store')->name('contact');
 
 Route::get('/', 'App\Http\Controllers\useController@acceuil')->name('acceuil');
 
 Route::get('/apropos', 'App\Http\Controllers\useController@apropos')->name('apropos');
 
 Route::get('/service', 'App\Http\Controllers\useController@service')->name('service');
+
 Route::get('/tarif', 'App\Http\Controllers\useController@tarif')->name('tarif');
+
+Route::get('/liste', 'App\Http\Controllers\useController@liste')->name('liste');
+
+Route::resource('cars', 'messageController');
+Route::get('/edit', 'App\Http\Controllers\useController@edit')->name('edit');
 
 

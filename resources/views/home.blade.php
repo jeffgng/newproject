@@ -57,6 +57,7 @@
         </div>
         </section>
         </div>
+        
         <div>
             @include('partials._footer')
         </div>

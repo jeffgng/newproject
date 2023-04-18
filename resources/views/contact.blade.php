@@ -4,7 +4,7 @@
     @include('partials._nav')
 
     <div class="container">
-    <form  action="" method="POST" action="{{ action('App\Http\Controllers\useController@create')}}  ">
+    <form  action="" method="POST" action="{{ route('contact')}}  ">
     @csrf
         <div class="formulaire">
         <br>

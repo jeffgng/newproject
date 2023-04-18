@@ -5,7 +5,7 @@
 </div>
 
 
-<div class="aligner">
+<div class="aligner" id="aligcard">
     <div class="col s10 m4">
         <div class="card">
             <div class="card-image">
